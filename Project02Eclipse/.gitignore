@@ -1,0 +1,6 @@
+result.out
+out/
+.idea
+*.iws
+*.iml
+*.ipr
