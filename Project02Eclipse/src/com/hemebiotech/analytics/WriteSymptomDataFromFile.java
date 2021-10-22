@@ -24,7 +24,7 @@ public class WriteSymptomDataFromFile implements ISymptomWriter{
     }
 
 
-    public FileWriter WriteKnownSymptoms(int headCount, int rashCount, int pupilCount) throws IOException {
+    public FileWriter writeKnownSymptoms(int headCount, int rashCount, int pupilCount) throws IOException {
         FileWriter writer = new FileWriter (filepath);
         writer.write("headache: " + headCount + "\n");
         writer.write("rash: " + rashCount + "\n");
@@ -40,7 +40,7 @@ public class WriteSymptomDataFromFile implements ISymptomWriter{
      * @return a .out file with symptoms and their occurrences
      */
     @Override
-    public Map<String, Integer> SetSymptoms() {
+    public Map<String, Integer> writeSymptoms() {
         return null;
     }
 }

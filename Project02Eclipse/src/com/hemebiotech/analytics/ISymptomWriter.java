@@ -17,6 +17,6 @@ public interface ISymptomWriter {
      *
      * @return a .out file with symptoms and their occurrences
      */
-    Map<String, Integer> SetSymptoms ();
+    Map<String, Integer> writeSymptoms();
 }
 

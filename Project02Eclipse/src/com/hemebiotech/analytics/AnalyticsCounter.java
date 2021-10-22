@@ -14,7 +14,7 @@ public class AnalyticsCounter {
 		String line = reader.readLine();
 
         // Create instance of symptom reader and them from specified file
-        /*ReadSymptomDataFromFile symptomsFromFile = new ReadSymptomDataFromFile("symptoms.txt");
+        /*ISymptomReader symptomsFromFile = new ReadSymptomDataFromFile("symptoms.txt");
 		symptomsFromFile.GetSymptoms();*/
 
 		int i = 0;
@@ -37,6 +37,6 @@ public class AnalyticsCounter {
 
 		// Write symptoms in specified file
 		WriteSymptomDataFromFile myFileWriter = new WriteSymptomDataFromFile("result.out");
-		myFileWriter.WriteKnownSymptoms(headCount, rashCount, pupilCount);
+		myFileWriter.writeKnownSymptoms(headCount, rashCount, pupilCount);
 	}
 }
