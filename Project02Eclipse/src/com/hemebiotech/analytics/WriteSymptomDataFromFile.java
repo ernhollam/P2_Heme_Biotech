@@ -41,6 +41,7 @@ public class WriteSymptomDataFromFile implements ISymptomWriter{
      */
     @Override
     public Map<String, Integer> writeSymptoms() {
+
         return null;
     }
 }
