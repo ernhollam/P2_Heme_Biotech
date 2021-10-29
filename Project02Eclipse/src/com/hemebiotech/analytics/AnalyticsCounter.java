@@ -10,8 +10,8 @@ public class AnalyticsCounter {
 		List<String> symptomsReadFromFile;
 		Map<String,Integer> symptomsWithOccurrences;
 
-        // Create instance of symptom reader
-        ISymptomReader listFromSymptomReader = new ReadSymptomDataFromFile("symptoms.txt");
+		// Create instance of symptom reader
+		ISymptomReader listFromSymptomReader = new ReadSymptomDataFromFile("symptoms.txt");
 		symptomsReadFromFile = listFromSymptomReader.getSymptoms();
 
 		//Count symptoms in symptomsFromFile
@@ -19,7 +19,7 @@ public class AnalyticsCounter {
 		symptomsWithOccurrences = symptomsListFromFile.countSymptoms();
 
 		// Write symptoms in specified file
-		//ISymptomWriter myFileWriter = new WriteSymptomDataFromFile("result.out");
-		//myFileWriter.writeKnownSymptoms(symptomsListFromFile);
+		ISymptomWriter myFileWriter = new WriteSymptomDataFromFile("result.out", symptomsWithOccurrences);
+		myFileWriter.writeSymptoms();
 	}
 }

@@ -3,9 +3,7 @@ package com.hemebiotech.analytics;
 import java.util.Map;
 
 /**
- * Anything that will write symptom data into a specified file
- *
- *
+ * Anything that will count symptoms
  */
 public interface ISymptomCounter {
     /**
