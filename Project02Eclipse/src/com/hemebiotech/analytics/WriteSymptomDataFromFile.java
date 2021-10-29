@@ -1,46 +1,43 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
- * Simple brute force implementation
- *
+ * Write symptoms from a TreeMap to a result.out file
  */
 public class WriteSymptomDataFromFile implements ISymptomWriter{
     private String filepath;
+    private Map<String, Integer> symptomsList;
 
     /**
      *
      * @param filepath a full or partial path where the result of the analysis will be saved
+     * @param symptomsList A TreeMap containing the list of all occurrences of symptoms ordered alphabetically
      */
-    public WriteSymptomDataFromFile (String filepath) {
+    public WriteSymptomDataFromFile(String filepath, Map<String, Integer> symptomsList) {
         this.filepath = filepath;
-    }
-
-
-    public FileWriter writeKnownSymptoms(int headCount, int rashCount, int pupilCount) throws IOException {
-        FileWriter writer = new FileWriter (filepath);
-        writer.write("headache: " + headCount + "\n");
-        writer.write("rash: " + rashCount + "\n");
-        writer.write("dialated pupils: " + pupilCount + "\n");
-        writer.close();
-
-        return writer;
+        this.symptomsList = symptomsList;
     }
 
     /**
-     * Generate a .out file with symptoms and occurrences
+     * Write symptoms and occurrences into specified file in filepath
      *
-     * @return a .out file with symptoms and their occurrences
+     * @param TreeMap variables with all symptoms and their occurrences ordered alphabetically
      */
     @Override
-    public Map<String, Integer> writeSymptoms() {
-        return null;
+    public void writeSymptoms() throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
+            if (filepath != null) {
+                for (Map.Entry idx_symptom : symptomsList.entrySet()) {
+                    writer.write(idx_symptom.getKey() + " " + idx_symptom.getValue() + "\n");
+                }
+            }
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

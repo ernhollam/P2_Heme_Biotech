@@ -1,42 +1,25 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.util.List;
+import java.util.Map;
 
 public class AnalyticsCounter {
-	private static int headCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
-	
+
 	public static void main(String... args) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		// Create local variables for all function outputs
+		List<String> symptomsReadFromFile;
+		Map<String,Integer> symptomsWithOccurrences;
 
-        // Create instance of symptom reader and them from specified file
-        /*ISymptomReader symptomsFromFile = new ReadSymptomDataFromFile("symptoms.txt");
-		symptomsFromFile.GetSymptoms();*/
+		// Create instance of symptom reader
+		ISymptomReader listFromSymptomReader = new ReadSymptomDataFromFile("symptoms.txt");
+		symptomsReadFromFile = listFromSymptomReader.getSymptoms();
 
-		int i = 0;
-		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rash")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
-		}
+		//Count symptoms in symptomsFromFile
+		ISymptomCounter symptomsListFromFile = new CountSymptomDataFromFile(symptomsReadFromFile);
+		symptomsWithOccurrences = symptomsListFromFile.countSymptoms();
 
 		// Write symptoms in specified file
-		WriteSymptomDataFromFile myFileWriter = new WriteSymptomDataFromFile("result.out");
-		myFileWriter.writeKnownSymptoms(headCount, rashCount, pupilCount);
+		ISymptomWriter myFileWriter = new WriteSymptomDataFromFile("result.out", symptomsWithOccurrences);
+		myFileWriter.writeSymptoms();
 	}
 }
