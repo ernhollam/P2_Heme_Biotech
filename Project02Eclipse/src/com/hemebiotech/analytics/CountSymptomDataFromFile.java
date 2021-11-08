@@ -48,9 +48,9 @@ public class CountSymptomDataFromFile implements ISymptomCounter {
 	 */
 	@Override
 	public Map<String, Integer> countSymptoms() {
-		Map<String, Integer> res;
+		Map<String, Integer> alphabeticallyOrderedSymptoms;
 		if (symptomsList.size() == 0) {
-			res = new TreeMap<>();
+			alphabeticallyOrderedSymptoms = new TreeMap<>();
 		} else {
 			Map<String, Integer> result = new TreeMap<>();
 			for (int indexList = 0; indexList < symptomsList.size(); indexList++) {
@@ -67,10 +67,10 @@ public class CountSymptomDataFromFile implements ISymptomCounter {
 					result.put(currentSymptom, nbOccurrencesOfSymptom); // Add new symptom to result map
 				}
 			}
-			res = result;
+			alphabeticallyOrderedSymptoms = result;
 		}
 
-		return res;
+		return alphabeticallyOrderedSymptoms;
 	}
 
 }
