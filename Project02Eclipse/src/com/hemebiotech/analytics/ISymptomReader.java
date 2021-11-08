@@ -2,19 +2,25 @@ package com.hemebiotech.analytics;
 
 import java.util.List;
 
-/**
- * Anything that will read symptom data from a source
+/**<b>Anything that will read symptom data from a source</b>
+ * <br>
  * The important part is, the return value from the operation, which is a list of strings,
  * that may contain many duplications
  * 
  * The implementation does not need to order the list
- * 
+ * <br><br>
+ * @author Caroline HÉDOT
+ *
+ * @see AnalyticsCounter
+ * @see ReadSymptomDataFromFile
+ * @see ReadSymptomDataFromFile#getSymptoms()
  */
 public interface ISymptomReader {
-	/**
-	 * If no data is available, return an empty List
-	 * 
+	/**<b>If no data is available, return an empty List</b>
+	 * <br><br>
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
+	 *
+	 * @see ISymptomReader
 	 */
 	List<String> getSymptoms();
 }
