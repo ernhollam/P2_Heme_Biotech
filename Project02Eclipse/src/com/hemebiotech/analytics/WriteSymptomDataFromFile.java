@@ -5,27 +5,43 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-/**
- * Write symptoms from a TreeMap to a result.out file
+/**<b>Writes symptoms from a TreeMap to a result.out file</b>
+ *
+ * @author Ernholla MARINASY
+ *
+ * @see com.hemebiotech.analytics.ISymptomWriter
+ * @see WriteSymptomDataFromFile#WriteSymptomDataFromFile(String, Map)
+ * @see WriteSymptomDataFromFile#writeSymptoms()
  */
 public class WriteSymptomDataFromFile implements ISymptomWriter{
     private String filepath;
     private Map<String, Integer> symptomsList;
 
-    /**
+    /**<b>Constructor for WriteSymptomDataFromFile</b>
      *
      * @param filepath a full or partial path where the result of the analysis will be saved
-     * @param symptomsList A TreeMap containing the list of all occurrences of symptoms ordered alphabetically
+     * @param symptomsList a <i>TreeMap</i> containing the list of all occurrences of symptoms ordered alphabetically
+     * <br><br>
+     * @see WriteSymptomDataFromFile
      */
     public WriteSymptomDataFromFile(String filepath, Map<String, Integer> symptomsList) {
         this.filepath = filepath;
         this.symptomsList = symptomsList;
     }
 
-    /**
-     * Write symptoms and occurrences into specified file in filepath
+    /**<b>Write symptoms and occurrences into specified file in filepath</b>
+     *<br>
      *
-     * @param TreeMap variables with all symptoms and their occurrences ordered alphabetically
+     * <p>
+     *     Uses buffered writer to reduce access to disk.<br>
+     *     Write each <i>TreeMap</i>'s key-value pair into <i>result.out</i> file
+     * </p>
+     * <br>
+     * @throws IOException an I/O exception
+     *
+     * @see AnalyticsCounter
+     * @see ISymptomWriter
+     * @see WriteSymptomDataFromFile
      */
     @Override
     public void writeSymptoms() throws IOException {
