@@ -14,13 +14,25 @@ import java.util.Map;
  * @see WriteSymptomDataFromFile#writeSymptoms()
  */
 public class WriteSymptomDataFromFile implements ISymptomWriter{
+    /**
+     * Output file path
+     *
+     * @see WriteSymptomDataFromFile
+     * @see WriteSymptomDataFromFile#writeSymptoms()
+     */
     private String filepath;
+
+    /**
+     * List of all symptoms in a Map variable
+     * @see WriteSymptomDataFromFile
+     * @see WriteSymptomDataFromFile#writeSymptoms()
+     */
     private Map<String, Integer> symptomsList;
 
-    /**<b>Constructor for WriteSymptomDataFromFile</b>
+    /**Constructor for WriteSymptomDataFromFile
      *
      * @param filepath a full or partial path where the result of the analysis will be saved
-     * @param symptomsList a <i>TreeMap</i> containing the list of all occurrences of symptoms ordered alphabetically
+     * @param symptomsList a <em>TreeMap</em> containing the list of all occurrences of symptoms ordered alphabetically
      * <br><br>
      * @see WriteSymptomDataFromFile
      */
@@ -29,12 +41,12 @@ public class WriteSymptomDataFromFile implements ISymptomWriter{
         this.symptomsList = symptomsList;
     }
 
-    /**<b>Write symptoms and occurrences into specified file in filepath</b>
+    /**<b>Writes symptoms and occurrences into specified file in filepath</b>
      *<br>
      *
      * <p>
      *     Uses buffered writer to reduce access to disk.<br>
-     *     Write each <i>TreeMap</i>'s key-value pair into <i>result.out</i> file
+     *     Writes each <em>TreeMap</em>'s key-value pair into <em>result.out</em> file
      * </p>
      * <br>
      * @throws IOException an I/O exception

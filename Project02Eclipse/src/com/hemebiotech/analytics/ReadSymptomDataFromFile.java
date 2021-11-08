@@ -8,7 +8,7 @@ import java.util.List;
 
 /**<b> Simple brute force implementation of reading a file line by line</b>
  *
- * @author Caroline HÉDOT
+ * @author Caroline HEDOT
  *
  * @see com.hemebiotech.analytics.ISymptomReader
  * @see ReadSymptomDataFromFile#ReadSymptomDataFromFile
@@ -17,9 +17,15 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
+	/**
+	 * Path to input .txt file
+	 *
+	 * @see ReadSymptomDataFromFile
+	 * @see ReadSymptomDataFromFile#getSymptoms()
+	 */
 	private final String filepath;
 	
-	/**<b>Constructor for ReadSymptomDataFromFile</b>
+	/**Constructor for ReadSymptomDataFromFile
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 * <br><br>
@@ -33,7 +39,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * <br>
 	 * <p>
 	 *     Uses a buffered reader to reduce access to disk.<br>
-	 *     Reads file line by line and writer each line into a <i>List</i> variable.
+	 *     Reads file line by line and writer each line into a <em>List</em> variable.
 	 * </p>
 	 * @return A List of symptoms as they appear in the input file
 	 * <br><br>

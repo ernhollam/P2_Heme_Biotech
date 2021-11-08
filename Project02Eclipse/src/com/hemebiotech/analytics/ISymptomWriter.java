@@ -16,7 +16,7 @@ import java.io.IOException;
 public interface ISymptomWriter {
     /**<b>Generate a .out file with symptoms ordered alphabetically and their occurrences</b>
      * <br><br>
-     *
+     * @throws IOException an I/O exception
      * @see ISymptomWriter
      */
     void writeSymptoms() throws IOException;

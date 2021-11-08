@@ -6,10 +6,10 @@ import java.util.List;
  * <br>
  * The important part is, the return value from the operation, which is a list of strings,
  * that may contain many duplications
- * 
+ * <br><br>
  * The implementation does not need to order the list
  * <br><br>
- * @author Caroline HÉDOT
+ * @author Caroline HEDOT
  *
  * @see AnalyticsCounter
  * @see ReadSymptomDataFromFile

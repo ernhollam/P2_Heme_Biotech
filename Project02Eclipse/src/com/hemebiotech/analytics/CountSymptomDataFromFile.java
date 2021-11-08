@@ -5,9 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**<p> <b>A counter that can count and order symptoms alphabetically from a file</b><br>
- * Implements ISymptomCounter interface<br>
- * Uses two for-loops to count the symptoms from a <i>List</i> variable<br>
- * Has one method <i>countSymptoms</i><br><br>
+ * Uses two for-loops to count the symptoms from a <em>List</em> variable<br><br><br>
  * </p>
  * @author Ernholla MARINASY
  *
@@ -16,12 +14,14 @@ import java.util.TreeMap;
  * @see CountSymptomDataFromFile#countSymptoms
  */
 public class CountSymptomDataFromFile implements ISymptomCounter {
-
+	/**
+	 * List of all symptoms
+	 */
 	private final List<String> symptomsList;
 
-	/**<b>Constructor for CountSymptomDataFromFile</b>
+	/**Constructor for CountSymptomDataFromFile
 	 *
-	 * @param symptomsList a List<String> of all symptoms found in file
+	 * @param symptomsList a List of all symptoms found in file
 	 *<br><br>
 	 * @see CountSymptomDataFromFile
 	 */
@@ -30,17 +30,16 @@ public class CountSymptomDataFromFile implements ISymptomCounter {
 	}
 
 	/**<b>Counts symptoms read from file and return an alphabetically ordered list of symptoms</b>
-	 * <br>
-	 * <p>The secret lies in the use of a <i>TreeMap</i>, an efficient means of storing key-value pairs in sorted order.<br>
+	 *
+	 * <p>The secret lies in the use of a <em>TreeMap</em>, an efficient means of storing key-value pairs in sorted order.<br>
 	 * The keys maintained in the map are the symptoms or side effects, the values mapped are the side effects' occurrences.<br>
 	 * <br>
-	 * <b>countSymptoms</b> works as follows:
+	 * <strong>countSymptoms</strong> works as follows:
 	 * <ol>
-	 *     <li>Check if the specified <i>List</i> is empty, if so, return an empty <i>TreeMap</i></li>
-	 *     <li>If the <i>List</i> contains symptoms, browse it, use one symptom at a time.
-	 *     First see if the symptom has already been counted, then browse the <i>List</i> again and count how many times it appears</li>
+	 *     <li>Check if the specified <em>List</em> is empty, if so, return an empty <em>TreeMap</em></li>
+	 *     <li>If the <em>List</em> contains symptoms, browse it, use one symptom at a time.
+	 *     First see if the symptom has already been counted, then browse the <em>List</em> again and count how many times it appears</li>
 	 * </ol>
-	 * </p>
 	 * @return A TreeMap with all symptoms and their occurrences
 	 *<br><br>
 	 * @see AnalyticsCounter
@@ -49,10 +48,10 @@ public class CountSymptomDataFromFile implements ISymptomCounter {
 	 */
 	@Override
 	public Map<String, Integer> countSymptoms() {
-		if (symptomsList.size()==0){
-			return new TreeMap<>();
-		}
-		else {
+		Map<String, Integer> res;
+		if (symptomsList.size() == 0) {
+			res = new TreeMap<>();
+		} else {
 			Map<String, Integer> result = new TreeMap<>();
 			for (int indexList = 0; indexList < symptomsList.size(); indexList++) {
 				int nbOccurrencesOfSymptom = 0;
@@ -68,9 +67,10 @@ public class CountSymptomDataFromFile implements ISymptomCounter {
 					result.put(currentSymptom, nbOccurrencesOfSymptom); // Add new symptom to result map
 				}
 			}
-			return result;
+			res = result;
 		}
 
+		return res;
 	}
 
 }
