@@ -2,7 +2,7 @@
 
 ## HEME Biotech: Trend analysis to predict customer needs
 
-This programm analyses symptoms trend to make a prediction in order to improve our produtcts.
+This program analyses symptoms trend to make a prediction in order to improve our produtcts.
 It works with a .txt file with all symptoms listed and outputs an .out file with all the symptoms and how many times they occurred during the experience.
 
 AnalyticsCounter is made of three step:
