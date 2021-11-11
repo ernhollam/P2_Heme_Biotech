@@ -20,14 +20,14 @@ public class WriteSymptomDataFromFile implements ISymptomWriter{
      * @see WriteSymptomDataFromFile
      * @see WriteSymptomDataFromFile#writeSymptoms()
      */
-    private String filepath;
+    private final String filepath;
 
     /**
      * List of all symptoms in a Map variable
      * @see WriteSymptomDataFromFile
      * @see WriteSymptomDataFromFile#writeSymptoms()
      */
-    private Map<String, Integer> symptomsList;
+    private final Map<String, Integer> symptomsList;
 
     /**Constructor for WriteSymptomDataFromFile
      *
