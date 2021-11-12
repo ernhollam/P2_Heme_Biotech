@@ -53,10 +53,8 @@ public class CountSymptomDataFromFile implements ISymptomCounter {
 			alphabeticallyOrderedSymptoms = new TreeMap<>();
 		} else {
 			Map<String, Integer> result = new TreeMap<>();
-			for (int indexList = 0; indexList < symptomsList.size(); indexList++) {
+			for (String currentSymptom: symptomsList) {
 				int nbOccurrencesOfSymptom = 0;
-				// Create temporary variable for the symptom to count
-				String currentSymptom = symptomsList.get(indexList);
 				if (!result.containsKey(currentSymptom)) {
 					// Browse list with current symptom and compare it to symptoms in symptomsList to count how many times it appears in list
 					for (String symptomInList : symptomsList) {
